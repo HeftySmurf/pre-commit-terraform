@@ -27,7 +27,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'tf_docs = hooks.tf_docs:main',
+            'tf_docs = hooks/tf_docs.tf_docs:main',
         ],
     },
 )
