@@ -1,4 +1,4 @@
-- id: terraform_docs
+- id: tf_docs
   name: Terraform docs (overwrite README.md)
   description: Overwrite content of README.md with terraform-docs.
   require_serial: true
