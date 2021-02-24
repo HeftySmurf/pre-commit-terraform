@@ -29,7 +29,7 @@ def main(argv=None):
     parser.add_argument('filenames', nargs='*', help='Filenames to check.')
     args = parser.parse_args(argv)
 
-    log_msg("current directory:{0}".format(os.path.curdir))
+    log_msg("current directory:{0}".format(os.path.dirname(os.path.curdir)))
 
     dirs = []
     for filename in args.filenames:
