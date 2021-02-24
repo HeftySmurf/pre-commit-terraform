@@ -12,19 +12,14 @@ def main(argv=None):
                        pulling the documentation from main.tf in order to replace the entire
                        README.md file each time."""
     )
+    parser.add.argumet(
+        '--config', config='config'
+    )
     parser.add_argument(
         '--dest', dest='dest', default='README.md',
     )
     parser.add_argument(
-        '--sort-inputs-by-required', dest='sort', action='store_true',
-        help='[deprecated] use --sort-by-required instead',
-    )
-    parser.add_argument(
         '--sort-by-required', dest='sort', action='store_true',
-    )
-    parser.add_argument(
-        '--with-aggregate-type-defaults', dest='aggregate', action='store_true',
-        help='[deprecated]',
     )
     parser.add_argument('filenames', nargs='*', help='Filenames to check.')
     args = parser.parse_args(argv)
@@ -41,6 +36,8 @@ def main(argv=None):
         try:
             procArgs = []
             procArgs.append('terraform-docs')
+            if args.config:
+                procArgs.append('--config')
             if args.sort:
                 procArgs.append('--sort-by-required')
             procArgs.append('md')
