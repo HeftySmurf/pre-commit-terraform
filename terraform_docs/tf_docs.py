@@ -51,13 +51,6 @@ def main(argv=None):
         except subprocess.CalledProcessError as e:
             print(e)
             retval = 1
-    try:
-        #subprocess.check_call("git add --all", shell=True)
-        #subprocess.check_call("git commit -m 'Terraform-docs'", shell=True)
-    except subprocess.CalledProcessError as e:
-            print(e)
-            retval = 1
-            
     return retval
 
 
