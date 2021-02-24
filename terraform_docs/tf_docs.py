@@ -13,9 +13,6 @@ def main(argv=None):
                        README.md file each time."""
     )
     parser.add_argument(
-        '--config', config='config'
-    )
-    parser.add_argument(
         '--dest', dest='dest', default='README.md',
     )
     parser.add_argument(
@@ -36,8 +33,6 @@ def main(argv=None):
         try:
             procArgs = []
             procArgs.append('terraform-docs')
-            if args.config:
-                procArgs.append('--config')
             if args.sort:
                 procArgs.append('--sort-by-required')
             procArgs.append('md')
