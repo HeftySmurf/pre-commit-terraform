@@ -3,6 +3,8 @@ import os
 import subprocess
 import sys
 
+def log_msg(msg=None):
+    print("VERBOSE:{0}".format(msg))
 
 def main(argv=None):
     parser = argparse.ArgumentParser(
@@ -26,6 +28,9 @@ def main(argv=None):
     )
     parser.add_argument('filenames', nargs='*', help='Filenames to check.')
     args = parser.parse_args(argv)
+
+    log_msg("current directory:{0}".format(os.getcwd))
+    log_msg("parent directory:{0}".format(os.pardir))
 
     dirs = []
     for filename in args.filenames:
@@ -51,6 +56,7 @@ def main(argv=None):
         except subprocess.CalledProcessError as e:
             print(e)
             retval = 1
+    log_msg("retval:{0}".format(retval))
     return retval
 
 
