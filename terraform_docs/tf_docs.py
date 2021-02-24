@@ -12,7 +12,7 @@ def main(argv=None):
                        pulling the documentation from main.tf in order to replace the entire
                        README.md file each time."""
     )
-    parser.add.argumet(
+    parser.add_argumet(
         '--config', config='config'
     )
     parser.add_argument(
