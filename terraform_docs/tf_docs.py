@@ -29,8 +29,6 @@ def main(argv=None):
     parser.add_argument('filenames', nargs='*', help='Filenames to check.')
     args = parser.parse_args(argv)
 
-    log_msg("current directory:{0}".format(os.path.dirname(os.path.curdir)))
-
     dirs = []
     for filename in args.filenames:
         if (os.path.realpath(filename) not in dirs and \
@@ -47,7 +45,6 @@ def main(argv=None):
                 procArgs.append('--sort-by-required')
             procArgs.append('md')
             procArgs.append("./{dir}".format(dir=dir))
-            log_msg("./{dir}".format(dir=dir))
             procArgs.append("| sed -e '$ d' -e 'N;/^\\n$/D;P;D'")
             procArgs.append('>')
             procArgs.append("./{dir}/{dest}".format(dir=dir,dest=args.dest))
