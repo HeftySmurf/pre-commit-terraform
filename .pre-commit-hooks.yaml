@@ -2,6 +2,7 @@
   name: Terraform docs (overwrite README.md)
   description: Overwrite content of README.md with terraform-docs.
   require_serial: true
+  verbose: true
   entry: tf_docs
   language: python
   files: (\.tf)$
