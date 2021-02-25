@@ -13,6 +13,14 @@ def main(argv=None):
                        README.md file each time."""
     )
     parser.add_argument(
+        '--hide', nargs='+', type=str, action='extend',
+        help='hide section [header, inputs, modules, outputs, providers, requirements, resources]'
+    ),
+    parser.add_argument(
+        '--show', nargs='+', type=str, action='extend',
+        help='show section [header, inputs, modules, outputs, providers, requirements, resources]'
+    ),
+    parser.add_argument(
         '--dest', dest='dest', default='README.md',
     )
     parser.add_argument(
@@ -37,6 +45,10 @@ def main(argv=None):
                 procArgs.append('--sort-by-required')
             procArgs.append('md')
             procArgs.append("./{dir}".format(dir=dir))
+            if args.hide:
+                procArgs.append("--hide {0}".format(",".join(args.hide)))
+            if args.hide:
+                procArgs.append("--show {0}".format(",".join(args.hide)))
             procArgs.append("| sed -e '$ d' -e 'N;/^\\n$/D;P;D'")
             procArgs.append('>')
             procArgs.append("./{dir}/{dest}".format(dir=dir,dest=args.dest))
