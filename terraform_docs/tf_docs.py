@@ -48,10 +48,11 @@ def main(argv=None):
             if args.hide:
                 procArgs.append("--hide {0}".format(",".join(args.hide)))
             if args.hide:
-                procArgs.append("--show {0}".format(",".join(args.hide)))
+                procArgs.append("--show {0}".format(",".join(args.show)))
             procArgs.append("| sed -e '$ d' -e 'N;/^\\n$/D;P;D'")
             procArgs.append('>')
             procArgs.append("./{dir}/{dest}".format(dir=dir,dest=args.dest))
+            log_msg(" ".join(procArgs))
             subprocess.check_call(" ".join(procArgs), shell=True)
         except subprocess.CalledProcessError as e:
             print(e)
