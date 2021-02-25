@@ -45,10 +45,8 @@ def main(argv=None):
                 procArgs.append('--sort-by-required')
             procArgs.append('md')
             procArgs.append("./{dir}".format(dir=dir))
-            if args.hide:
+            if args.hide != None:
                 procArgs.append("--hide '{0}'".format(args.hide)
-            if args.show:
-                procArgs.append("--show '{0}'".format(args.show)
             procArgs.append("| sed -e '$ d' -e 'N;/^\\n$/D;P;D'")
             procArgs.append('>')
             procArgs.append("./{dir}/{dest}".format(dir=dir,dest=args.dest))
