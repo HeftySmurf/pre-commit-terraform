@@ -46,7 +46,7 @@ def main(argv=None):
             procArgs.append('md')
             procArgs.append("./{dir}".format(dir=dir))
             if args.hide != None:
-                procArgs.append("--hide '{0}'".format(args.hide))
+                procArgs.append('--hide '+args.hide)
             procArgs.append("| sed -e '$ d' -e 'N;/^\\n$/D;P;D'")
             procArgs.append('>')
             procArgs.append("./{dir}/{dest}".format(dir=dir,dest=args.dest))
