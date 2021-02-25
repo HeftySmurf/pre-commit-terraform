@@ -13,11 +13,11 @@ def main(argv=None):
                        README.md file each time."""
     )
     parser.add_argument(
-        '--hide', nargs='+', type=str, action='extend',
+        '--hide', dest='hide',
         help='hide section [header, inputs, modules, outputs, providers, requirements, resources]'
     ),
     parser.add_argument(
-        '--show', nargs='+', type=str, action='extend',
+        '--show', dest='show',
         help='show section [header, inputs, modules, outputs, providers, requirements, resources]'
     ),
     parser.add_argument(
@@ -46,9 +46,9 @@ def main(argv=None):
             procArgs.append('md')
             procArgs.append("./{dir}".format(dir=dir))
             if args.hide:
-                procArgs.append("--hide '{0}'".format(",".join(args.hide)))
-            if args.hide:
-                procArgs.append("--show '{0}'".format(",".join(args.show)))
+                procArgs.append("--hide '{0}'".format(args.hide)
+            if args.show:
+                procArgs.append("--show '{0}'".format(args.show)
             procArgs.append("| sed -e '$ d' -e 'N;/^\\n$/D;P;D'")
             procArgs.append('>')
             procArgs.append("./{dir}/{dest}".format(dir=dir,dest=args.dest))
