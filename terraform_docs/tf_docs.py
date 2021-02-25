@@ -46,7 +46,6 @@ def main(argv=None):
             procArgs.append('md')
             procArgs.append("./{dir}".format(dir=dir))
             if args.hide:
-                sections = 
                 procArgs.append("--hide '{0}'".format(",".join(args.hide)))
             if args.hide:
                 procArgs.append("--show '{0}'".format(",".join(args.show)))
